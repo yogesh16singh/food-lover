@@ -1,22 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-// import passport from "passport";
-// import session from "express-session";
+import passport from "passport";
+import session from "express-session";
 // import cors from "cors";
 // import helmet from "helmet";
 
 // Private route authorization config
-// import privateRouteConfig from "./config/route.config";
+import privateRouteConfig from "./config/route.config";
 // import googleAuthConfig from "./config/google.config";
 
 // Database connection
 import ConnectDB from "./database/connection";
 
 import Auth from "./api/auth";
-// import Food from "./api/food";
-// import Restaurant from "./api/restaurant";
-// import User from "./api/user";
+import Food from "./api/food";
+import Restaurant from "./api/restaurant";
+import User from "./api/user";
 // import Menu from "./api/menu";
 // import Order from "./api/order";
 // import Review from "./api/review";
@@ -24,7 +24,7 @@ import Auth from "./api/auth";
 
 dotenv.config();
 
-// privateRouteConfig(passport);
+privateRouteConfig(passport);
 // googleAuthConfig(passport);
 mongoose.set('strictQuery', false);
 const zomato = express();
@@ -34,9 +34,13 @@ const zomato = express();
 // zomato.use(cors({ origin: "http://localhost:3000" }));
 // zomato.use(helmet());
 zomato.use(express.json());
-// zomato.use(session({ secret: process.env.JWTSECRET }));
-// zomato.use(passport.initialize());
-// zomato.use(passport.session());
+zomato.use(session({
+    secret: "FoodLover",
+    resave: true,
+    saveUninitialized: true
+}));
+zomato.use(passport.initialize());
+zomato.use(passport.session());
 
 zomato.get("/", (req, res) => {
     res.json({
@@ -46,9 +50,9 @@ zomato.get("/", (req, res) => {
 
 // /auth/signup
 zomato.use("/auth", Auth);
-// zomato.use("/food", Food);
-// zomato.use("/restaurant", Restaurant);
-// zomato.use("/user", User);
+zomato.use("/food", Food);
+zomato.use("/restaurant", Restaurant);
+zomato.use("/user", User);
 // zomato.use("/menu", Menu);
 // zomato.use("/order", Order);
 // zomato.use("/review", Review);

@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema(
 
 // attachments
 UserSchema.methods.generateJwtToken = function () {
-  return jwt.sign({ user: this._id.toString() }, "foodLover");
+  return jwt.sign({ user: this._id.toString() }, "FoodLover");
 };
 
 // helper functions
