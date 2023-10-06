@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
 
 export default async () => {
-  return mongoose.connect("mongodb+srv://foodLover:foodLover@cluster0.yubjsmq.mongodb.net/?retryWrites=true&w=majority");
+  return mongoose.connect(process.env.MANGODB_URL);
 };

@@ -15,7 +15,15 @@ const Router = express.Router();
  * Access    Public
  * Method    POST
  */
-// Homework
+//Todo
+Router.post("/create", async (req, res) => {
+    try {
+        const newRestaurant = await RestaurantModel.create(req.body.restaurant);
+        return res.status(200).json({ status: "restaurant created successfully", newRestaurant });
+    } catch (error) {
+        return res.status(500).json({ error: error.message });
+    }
+});
 
 /**
  * Route     /
