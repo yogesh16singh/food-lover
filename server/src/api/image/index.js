@@ -39,9 +39,8 @@ Router.get("/:_id", async (req, res) => {
 Router.post("/", upload.single("file"), async (req, res) => {
     try {
         const file = req.file;
-
         const bucketOptions = {
-            Bucket: "food-lover",
+            Bucket: "lovelyfood",
             Key: file.originalname,
             Body: file.buffer,
             ContentType: file.mimetype,
@@ -50,16 +49,17 @@ Router.post("/", upload.single("file"), async (req, res) => {
 
         const uploadImage = await s3Upload(bucketOptions);
 
-        // const dbUpload = await ImageModel.create({
-        //   images: [
-        //     {
-        //       location: uploadImage.Location,
-        //     },
-        //   ],
-        // });
+        const dbUpload = await ImageModel.create({
+            images: [
+                {
+                    location: uploadImage.Location,
+                },
+            ],
+        });
 
-        return res.status(200).json({ uploadImage });
+        return res.status(200).json({ dbUpload });
     } catch (error) {
+        console.log("error")
         return res.status(500).json({ error: error.message });
     }
 });
