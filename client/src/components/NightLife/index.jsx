@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const index = () => {
+import NightLifeCarousel from "./NightLifeCarousel";
+
+const NightLife = () => {
     return (
-        <div>index</div>
-    )
-}
+        <div className="mb-10">
+            <h1 className="text-xl my-4 md:my-8 md:text-3xl md:font-semibold">
+                Nightlife Restaurant in Delhi NCR
+            </h1>
+            <NightLifeCarousel />
+        </div>
+    );
+};
 
-export default index
+export default NightLife;
