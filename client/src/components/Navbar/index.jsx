@@ -28,8 +28,7 @@ const MobileNav = ({
     const navigate = useNavigate();
 
     const SignOut = () => {
-        dispatch(signOut());
-        dispatch(clearUser());
+
         navigate("/delivery");
         setIsDropdownOpen(false);
     };
@@ -56,7 +55,7 @@ const MobileNav = ({
                             className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
                         >
                             <img
-                                src="/images/avatar.png"
+                                src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
                                 alt="avatar"
                                 className="w-full h-full rounded-full object-cover"
                             />
@@ -143,7 +142,7 @@ const LargeNav = ({
                             className="border border-gray-300 text-zomato-400 w-9 h-9 rounded-full"
                         >
                             <img
-                                src="/images/avatar.png"
+                                src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"
                                 alt="avatar"
                                 className="w-full h-full rounded-full object-cover"
                             />
@@ -186,7 +185,7 @@ const Navbar = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const user = {
-        // fullName: "Aditya",
+        fullName: "Aditya",
     };
 
 
