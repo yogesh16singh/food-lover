@@ -10,7 +10,7 @@ import ImageGrid from "../components/Restaurant/ImageGrid";
 import InfoButton from "../components/Restaurant/InfoButton";
 import RestaurantInfo from "../components/Restaurant/RestaurantInfo";
 import Tabs from "../components/Restaurant/Tabs";
-// import CartContainer from "../components/Cart/CartContainer";
+import CartContainer from "../components/Cart/CartContainer";
 
 
 const RestaurantLayout = ({ children: Component, ...props }) => {
@@ -71,7 +71,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
                 </div>
                 {Component}
             </div>
-            {/* <CartContainer /> */}
+            <CartContainer />
         </>
     );
 };
