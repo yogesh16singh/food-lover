@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import passport from "passport";
 import session from "express-session";
-// import cors from "cors";
-// import helmet from "helmet";
+import cors from "cors";
+import helmet from "helmet";
 
 // Private route authorization config
 import privateRouteConfig from "./config/route.config";
@@ -31,8 +31,8 @@ const zomato = express();
 
 // adding additional passport configuration
 
-// zomato.use(cors({ origin: "http://localhost:3000" }));
-// zomato.use(helmet());
+zomato.use(cors({ origin: "http://localhost:5173" }));
+zomato.use(helmet());
 zomato.use(express.json());
 zomato.use(session({
     secret: "FoodLover",
