@@ -4,5 +4,5 @@ dotenv.config();
 
 
 export default async () => {
-  return mongoose.connect(process.env.MANGODB_URL);
+  return mongoose.connect(process.env.MANGODB_C);
 };

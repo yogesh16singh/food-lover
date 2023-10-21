@@ -13,35 +13,44 @@ import MenuSimilarRestaurantCard from "./MenuSimilarRestaurantCard";
 import ReviewCard from "../Reviews/ReviewCard";
 import MapView from "./MapView";
 
+// redux
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
 
 const Overview = () => {
-    const [restaurant, setRestaurant] = useState({
-        _id: "124ksjf435245jv34fg3",
-        isPro: true,
-        isOff: true,
-        name: "Nathu's Sweets",
-        restaurantReviewValue: "3.7",
-        cuisine: [
-            "Mithai",
-            "South Indian",
-            "Chinese",
-            "Street Food",
-            "Fast Food",
-            "Desserts",
-            "North Indian",
-        ],
-        averageCost: "450",
-    });
-    const [menuImages, setMenuImages] = useState(["https://b.zmtcdn.com/data/menus/641/20631641/0f98fa0e8dd74c74c1ab634ebb540e16.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-        "https://b.zmtcdn.com/data/menus/641/20631641/d20839c595e26b71e67ee7d689e2febb.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A"]);
+    const [restaurant, setRestaurant] = useState({ cuisine: [] });
+
+    const reduxState = useSelector(
+        (globalState) => globalState.restaurant.selectedRestaurant.restaurant
+    );
+
+    useEffect(() => {
+        if (reduxState) {
+            setRestaurant(reduxState);
+        }
+    }, [reduxState]);
+
+    const [menuImages, setMenuImages] = useState([
+        "https://b.zmtcdn.com/data/menus/931/931/d40e86a957d1ed6e6fabe5a67a161904.jpg",
+        "https://b.zmtcdn.com/data/menus/931/931/36f8a3b9e5dbf6435f903c9a8745bcc8.jpg",
+        "https://b.zmtcdn.com/data/menus/931/931/8d6623791860b054953b6c2c14d61bcb.jpg",
+        "https://b.zmtcdn.com/data/menus/931/931/6d462a04051c0eabb0067149aa84cc64.jpg",
+    ]);
+
     const [reviews, setReviews] = useState([
         {
-            rating: "4",
-            isRestaurantReview: true,
-            // createdAt: { years: 2024, months: 12, date: 5, hours: 15, minutes: 10, seconds: 3, milliseconds: 123 },
-            createdAt: { hour: 1, minute: 10 },
-            reviewText: "Good"
-        }
+            rating: 3.5,
+            isRestaurantReview: false,
+            createdAt: "Fri Oct 14 2022 20:20:34 GMT+0530 (India Standard Time)",
+            reviewText: "Very bad experience.",
+        },
+        {
+            rating: 4.5,
+            isRestaurantReview: false,
+            createdAt: "Fri Oct 14 2022 20:19:34 GMT+0530 (India Standard Time)",
+            reviewText: "Very good experience.",
+        },
     ]);
 
     const { id } = useParams;
