@@ -41,7 +41,7 @@ const CartData = ({ toggle }) => {
                         {cart.length} Item <IoMdArrowDropup />
                     </small>
                     <h4>
-                        ${cart.reduce((acc, curVal) => acc + curVal.totalPrice, 0)}{" "}
+                        ₹ {cart.reduce((acc, curVal) => acc + curVal.totalPrice, 0)}{" "}
                         <sub>(plus tax)</sub>
                     </h4>
                 </div>
@@ -71,7 +71,6 @@ const CartContainer = () => {
             description: "Rashers and bourbon caramel sauce.",
             quantity: 3,
             totalPrice: 600,
-            _id: 1,
         },
         {
             image:
@@ -83,7 +82,6 @@ const CartContainer = () => {
             totalPrice: 250,
             description:
                 "Fish marinated in flavourful lemon-chilli masala roasted in the tandoor with care. Serves 2-3 people.",
-            _id: 2,
         },
     ]);
 
