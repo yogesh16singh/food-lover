@@ -7,7 +7,7 @@ export const getRestaurant = () => async (dispatch) => {
     try {
         const restaurantList = await axios({
             method: "GET",
-            url: `/api/restaurant?city=NCR`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/restaurant?city=NCR`,
         });
 
         return dispatch({
@@ -23,7 +23,7 @@ export const getSpecificRestaurant = (_id) => async (dispatch) => {
     try {
         const restaurantList = await axios({
             method: "GET",
-            url: `/api/restaurant/${_id}`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/restaurant/${_id}`,
         });
 
         return dispatch({

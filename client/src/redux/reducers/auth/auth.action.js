@@ -7,7 +7,7 @@ export const signIn = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: `https://foodlover.onrender.com/auth/signin`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + "/auth/signin",
             data: { credentials: userData },
         });
 
@@ -30,7 +30,7 @@ export const signUp = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: `/api/auth/signup`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/auth/signup`,
             data: { credentials: userData },
         });
 

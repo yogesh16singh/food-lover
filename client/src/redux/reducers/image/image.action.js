@@ -7,7 +7,7 @@ export const getImage = (_id) => async (dispatch) => {
     try {
         const image = await axios({
             method: "GET",
-            url: `/api/image/${_id}`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/image/${_id}`,
         });
 
         return dispatch({ type: GET_IMAGE, payload: image.data.image });

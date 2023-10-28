@@ -7,7 +7,7 @@ export const getReview = (resId) => async (dispatch) => {
     try {
         const reviewList = await axios({
             method: "GET",
-            url: `/api/review/${resId}`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/review/${resId}`,
         });
 
         return dispatch({ type: GET_REVIEW, payload: reviewList.data });
@@ -20,7 +20,7 @@ export const postReview = (reviewData) => async (dispatch) => {
     try {
         await axios({
             method: "POST",
-            url: `/api/review/new`,
+            url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/review/new`,
             data: { reviewData },
         });
 
