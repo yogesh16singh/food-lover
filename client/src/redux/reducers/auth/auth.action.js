@@ -7,7 +7,7 @@ export const signIn = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: `/api/auth/signin`,
+            url: `https://foodlover.onrender.com/auth/signin`,
             data: { credentials: userData },
         });
 
