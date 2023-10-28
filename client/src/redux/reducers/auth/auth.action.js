@@ -7,12 +7,12 @@ export const signIn = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: "http://localhost:4000/auth/signin",
+            url: `/api/auth/signin`,
             data: { credentials: userData },
         });
 
         localStorage.setItem(
-            "FoodLover",
+            "zomatoUser",
             JSON.stringify({ token: User.data.token })
         );
 
@@ -30,12 +30,12 @@ export const signUp = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: "http://localhost:4000/auth/signup",
+            url: `${process.env.REACT_APP_CLIENT_URL}auth/signup`,
             data: { credentials: userData },
         });
 
         localStorage.setItem(
-            "FoodLover",
+            "zomatoUser",
             JSON.stringify({ token: User.data.token })
         );
 
@@ -51,7 +51,7 @@ export const signUp = (userData) => async (dispatch) => {
 
 export const signOut = () => async (dispatch) => {
     try {
-        localStorage.removeItem("FoodLover");
+        localStorage.removeItem("zomatoUser");
 
         return dispatch({ type: SIGN_OUT, payload: {} });
     } catch (error) {
@@ -61,7 +61,7 @@ export const signOut = () => async (dispatch) => {
 
 export const googleAuth = (token) => async (dispatch) => {
     try {
-        localStorage.setItem("FoodLover", JSON.stringify({ token }));
+        localStorage.setItem("zomatoUser", JSON.stringify({ token }));
 
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 

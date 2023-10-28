@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
@@ -20,12 +19,14 @@ import RestaurantLayout from "./layouts/Restaurant.layout";
 // redux
 import { useDispatch } from "react-redux";
 import { getMySelf } from "./redux/reducers/user/user.action";
+import { getCart } from "./redux/reducers/cart/cart.action";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMySelf());
+    dispatch(getCart());
   }, [localStorage]);
 
   return (
@@ -42,7 +43,8 @@ function App() {
               <Restaurant />
             </RestaurantLayout>
           }
-        > <Route path="overview" element={<Overview />} />
+        >
+          <Route path="overview" element={<Overview />} />
           <Route path="order-online" element={<OrderOnline />} />
           <Route path="reviews" element={<Reviews />} />
           <Route path="menu" element={<Menu />} />
@@ -51,7 +53,7 @@ function App() {
         <Route path="/checkout/orders" element={<Checkout />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

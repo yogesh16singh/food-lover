@@ -2,12 +2,12 @@ import axios from "axios";
 
 // redux types
 import { GET_USER, SELF, CLEAR_USER } from "./user.type";
-
+// console.log(process.env.REACT_APP_CLIENT_URL);
 export const getUser = (_id) => async (dispatch) => {
     try {
         const User = await axios({
             method: "GET",
-            url: `http://localhost:4000/user/${_id}`,
+            url: `/api/user/${_id}`,
         });
 
         return dispatch({ type: GET_USER, payload: User.data });
@@ -20,7 +20,7 @@ export const getMySelf = () => async (dispatch) => {
     try {
         const User = await axios({
             method: "GET",
-            url: `http://localhost:4000/user/`,
+            url: `/api/user/`,
         });
 
         return dispatch({ type: SELF, payload: { ...User.data.user } });
