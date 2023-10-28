@@ -30,7 +30,7 @@ export const signUp = (userData) => async (dispatch) => {
     try {
         const User = await axios({
             method: "POST",
-            url: `${process.env.REACT_APP_CLIENT_URL}auth/signup`,
+            url: `/api/auth/signup`,
             data: { credentials: userData },
         });
 
