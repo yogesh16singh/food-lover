@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { HiMenu } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 

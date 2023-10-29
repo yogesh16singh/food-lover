@@ -8,7 +8,7 @@ export const getFood = (foodId) => async (dispatch) => {
             method: "GET",
             url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/food/${foodId}`,
         });
-
+        console.log("food",Food);
         return dispatch({ type: GET_FOOD, payload: Food.data });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error });

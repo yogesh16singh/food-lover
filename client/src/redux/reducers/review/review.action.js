@@ -9,7 +9,7 @@ export const getReview = (resId) => async (dispatch) => {
             method: "GET",
             url: import.meta.env.VITE_REACT_APP_CLIENT_URL + `/review/${resId}`,
         });
-        console.log("rre",reviewList);
+        // console.log("rre",reviewList);
         return dispatch({ type: GET_REVIEW, payload: reviewList.data });
     } catch (error) {
         dispatch({ type: "ERROR", payload: error });
