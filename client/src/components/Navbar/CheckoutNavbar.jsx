@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ const CheckoutNavbar = () => {
                         <div className="flex items-center justify-center gap-3">
                             <div className="border border-gray-300 text-zomato-400 w-10 h-10 rounded-full overflow-hidden">
                                 <img
-                                    src="/images/avatar.png"
+                                    src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
                                     alt=""
                                     className="w-full h-full rounded-full object-cover"
                                 />

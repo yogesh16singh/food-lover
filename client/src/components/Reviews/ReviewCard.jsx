@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { TiStarFullOutline } from "react-icons/ti";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -6,7 +6,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 
 const ReviewCard = (props) => {
-    const [user, setUser] = useState("Aditya");
+    const [user] = useState("Aditya");
 
     return (
         <div className="my-3 flex flex-col gap-3 pb-4 border-b border-gray-300">
@@ -14,7 +14,7 @@ const ReviewCard = (props) => {
                 <div className="flex items-center gap-2">
                     <div className="w-10 h-10 rounded-full">
                         <img
-                            src="/images/avatar.png"
+                            src="https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
                             alt="avatar"
                             className="w-full h-full rounded-full object-cover"
                         />

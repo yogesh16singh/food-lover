@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { TiStarOutline } from "react-icons/ti";
 import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
 import { BiBookmarkPlus } from "react-icons/bi";
@@ -17,7 +17,7 @@ import { useDispatch } from "react-redux";
 import { getSpecificRestaurant } from "../redux/reducers/restaurant/restaurant.action";
 import { getImage } from "../redux/reducers/image/image.action";
 
-const RestaurantLayout = ({ children: Component, ...props }) => {
+const RestaurantLayout = ({ children: Component,  }) => {
     const [restaurant, setRestaurant] = useState({
         images: [],
         name: "",
