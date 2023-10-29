@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import {  Navigation } from "swiper/modules";
 
 // components
 import MenuCollection from "./MenuCollection";
@@ -47,6 +47,7 @@ const Overview = () => {
             });
 
             dispatch(getReview(reduxState?._id)).then((data) => {
+                console.log(data.payload.reviews)
                 setReviews(data.payload.reviews);
             });
         }

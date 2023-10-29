@@ -2,7 +2,7 @@
 import { AiOutlineCamera } from "react-icons/ai";
 
 const ImageGrid = (props) => {
-    {console.log(props)}
+
     if(props.images.length==0)
     return <></>
     return  (

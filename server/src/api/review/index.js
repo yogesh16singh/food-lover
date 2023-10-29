@@ -15,7 +15,7 @@ const Router = express.Router();
 Router.get("/:resId", async (req, res) => {
     try {
         const { resId } = req.params;
-        const reviews = await ReviewModel.find({ restaurants: resId }).sort({
+        const reviews = await ReviewModel.find({ restaurant: resId }).sort({
             createdAt: -1,
         });
 

@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { TiStarFullOutline } from "react-icons/ti";
 
 const RestaurantInfo = (props) => {
