@@ -1,6 +1,6 @@
 // import React from "react";
 import { BsShieldLockFill } from "react-icons/bs";
-
+import useRazorpay from "react-razorpay";
 // Layout
 import CheckoutLayout from "../layouts/Checkout.layout";
 
@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 const Checkout = () => {
     const cart = useSelector((globalState) => globalState.cart.cart);
     const user = useSelector((globalState) => globalState.user);
+    const [Razorpay] = useRazorpay();
 
     const address = [
         {
@@ -28,11 +29,11 @@ const Checkout = () => {
 
     const payNow = () => {
         let options = {
-            key: "rzp_test_q1aD8S4CGOEb75",
+            key: "rzp_test_UjGPIwbgTuLTWn",
             amount:
                 cart.reduce((total, current) => total + current.totalPrice, 0) * 100,
             currency: "INR",
-            name: "Zomato Master",
+            name: "Food Lover",
             description: "Fast Delivery Service",
             handler: (data) => {
                 alert("Payment Successful");
@@ -46,9 +47,20 @@ const Checkout = () => {
                 color: "#e23744",
             },
         };
+        const rzp1 = new Razorpay(options);
 
-        let razorpay = new window.Razorpay({ options });
-        razorpay.open();
+        rzp1.on("payment.failed", function (response) {
+          alert(response.error.code);
+          alert(response.error.description);
+          alert(response.error.source);
+          alert(response.error.step);
+          alert(response.error.reason);
+          alert(response.error.metadata.order_id);
+          alert(response.error.metadata.payment_id);
+        });
+      
+        rzp1.open();
+       
     };
 
     return (
